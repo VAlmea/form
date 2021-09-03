@@ -18,10 +18,10 @@
             <div class="row">
                 <div class="col-lg-10">
                   <div class="form-group">
-                      <input id="menor" type="checkbox" name="menor" aria-label="...">
+                      <input id="menor" type="checkbox" name="menor" aria-label="..." onchange="ShowAndHide(event)">
                       <label for="menor">I am signing on behalf of one or more minors</label>
                   </div>
-                  <button type="button" id="add">Add Child</button>
+                  <button type="button" id="add" class="hidden">Add Child</button>
                   <div id="minorsList" class="container">
                     <!-- <div class="row">
                         <div class="form-group col-lg-4">
@@ -43,9 +43,23 @@
         </form>
     </div>
     <script>
+        var number = 1;
+        function ShowAndHide(event){
+            if(event.target.checked){
+                $("#add").removeClass("hidden");
+                for(let i=1; i<=number;i++){
+                    $("#row" + i.toString()).removeClass("hidden");
+                }
+            }
+            else{
+                $("#add").addClass("hidden");
+                for(let i=1; i<=number;i++){
+                    $("#row" + i.toString()).addClass("hidden");
+                }
+            }
+        }
         $(document).ready(function(){
                 $('#add').on('click', function(){
-                    let number = 1;
                     let html = '<div class="row" id="row'+ number.toString() +'">' +
                         '<div class="form-group col-lg-4">' + 
                             '<label for="fisrtName">First Name</label>' +
