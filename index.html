@@ -21,12 +21,9 @@
                       <input id="menor" type="checkbox" name="menor" aria-label="...">
                       <label for="menor">I am signing on behalf of one or more minors</label>
                   </div>
-                  <div id="hiddenForm" class="hidden">
-                      <ul id="minorsList">
-                        
-                      </ul>
-                      <br>
-                    <div class="row">
+                  <button type="button" id="add">Add Child</button>
+                  <div id="minorsList" class="container">
+                    <!-- <div class="row">
                         <div class="form-group col-lg-4">
                             <label for="fisrtName">First Name</label>
                             <input type="text" id="firstName" name="fisrtName" class="form-control" placeholder="">
@@ -39,31 +36,26 @@
                             <label for="dateOfBirth">Date of Birth</label>
                             <input type="date" id="dateOfBirth" name="dateOfBirth" class="form-control" placeholder="Date of birth">
                           </div>
-                        <button type="button" id="add" class="btn btn-default" style="margin-top: 25px;">Add</button>
-                      </div>
+                      </div> -->
                     </div>              
                 </div>              
         </form>
     </div>
     <script>
         $(document).ready(function(){
-            $('#menor').on('click', function(){
-                $('#hiddenForm').removeClass("hidden");
-                let minors = [];
                 $('#add').on('click', function(){
-                    var fName = $('#firstName').val();
-                    var lName = $('#lastName').val();
-                    var dob = $('#dateOfBirth').val();
-                    minors.push({"FName":fName, "LName":lName, "DoB":dob});
-                    $('#minorsList').append('<li>'+fName+' '+ lName+' '+ dob + '</li>')
-                    $('#firstName').val('');
-                    $('#lastName').val('');
-                    $('#dateOfBirth').val('');
+                    let number = 1;
+                    let html = '<div class="row">' +
+                        '<div class="form-group col-lg-4">' + 
+                            '<label for="fisrtName">First Name</label>' +
+                            '<input type="text" id="firstName" name="firstName'+ number.toString() +'" class="form-control" placeholder="">' +
+                            '</div>' + '</div>';
+                    $('#minorsList').append(html)
+                    number++;
                     console.log(minors);
                 });
 
             });
-        });
     </script>
 </body>
 </html>
