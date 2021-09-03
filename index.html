@@ -46,17 +46,29 @@
         $(document).ready(function(){
                 $('#add').on('click', function(){
                     let number = 1;
-                    let html = '<div class="row">' +
+                    let html = '<div class="row" id="row'+ number.toString() +'">' +
                         '<div class="form-group col-lg-4">' + 
                             '<label for="fisrtName">First Name</label>' +
-                            '<input type="text" id="firstName'+ number.toString() +'" name="firstName'+ number.toString() +'" class="form-control" placeholder="">' +
-                            '</div>' + '</div>';
+                            '<input type="text" id="FirstName'+ number.toString() +'" name="FirstName'+ number.toString() +'" class="form-control" placeholder="">' +
+                            '</div>' +
+                            '<div class="form-group col-lg-4">' + 
+                            '<label for="fisrtName">Last Name</label>' +
+                            '<input type="text" id="LastName'+ number.toString() +'" name="LastName'+ number.toString() +'" class="form-control" placeholder="">' +
+                            '</div>' +
+                            '<div class="form-group col-lg-3">' + 
+                            '<label for="fisrtName">Date of Birth</label>' +
+                            '<input type="date" id="DateOfBirth'+ number.toString() +'" name="DateOfName'+ number.toString() +'" class="form-control" placeholder="">' +
+                            '</div>' +
+                            '<button onclick="removeRow('+ number.toString() + ')" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>'
+                            '</div>';
                     $('#minorsList').append(html)
                     number++;
-                    console.log(minors);
+                    console.log(html);
                 });
-
             });
+            let removeRow = function(number){
+                $('#row'+number).remove();
+            }
     </script>
 </body>
 </html>
