@@ -37,8 +37,9 @@
                             <input type="date" id="dateOfBirth" name="dateOfBirth" class="form-control" placeholder="Date of birth">
                           </div>
                       </div> -->
-                    </div>              
-                </div>              
+                    </div>  
+                    <button type="submit">Post</button>            
+                </div>          
         </form>
     </div>
     <script>
@@ -48,7 +49,7 @@
                     let html = '<div class="row">' +
                         '<div class="form-group col-lg-4">' + 
                             '<label for="fisrtName">First Name</label>' +
-                            '<input type="text" id="firstName" name="firstName'+ number.toString() +'" class="form-control" placeholder="">' +
+                            '<input type="text" id="firstName'+ number.toString() +'" name="firstName'+ number.toString() +'" class="form-control" placeholder="">' +
                             '</div>' + '</div>';
                     $('#minorsList').append(html)
                     number++;
