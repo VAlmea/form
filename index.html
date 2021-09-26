@@ -1,88 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/bootstrap.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/bootstrap.css" />
     <script src="./js/jquery-2.2.3.js"></script>
     <script src="./js/bootstrap.js"></script>
+    <script src="./js/moment-with-locales.min.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
     <title>Form</title>
-</head>
-<body>
-    <div class="container">
-        <h2>Form</h2>
-        <hr>
-        <br>
-        <form action="">
-            <div class="row">
-                <div class="col-lg-10">
-                  <div class="form-group">
-                      <input id="menor" type="checkbox" name="menor" aria-label="..." onchange="ShowAndHide(event)">
-                      <label for="menor">I am signing on behalf of one or more minors</label>
-                  </div>
-                  <button type="button" id="add" class="hidden">Add Child</button>
-                  <div id="minorsList" class="container">
-                    <!-- <div class="row">
-                        <div class="form-group col-lg-4">
-                            <label for="fisrtName">First Name</label>
-                            <input type="text" id="firstName" name="fisrtName" class="form-control" placeholder="">
-                        </div>
-                        <div class="form-group col-lg-4">
-                            <label for="lastName">Last Name</label>
-                          <input type="text" id="lastName" name="lastName" class="form-control" placeholder="">
-                        </div>
-                        <div class="form-group col-lg-3">
-                            <label for="dateOfBirth">Date of Birth</label>
-                            <input type="date" id="dateOfBirth" name="dateOfBirth" class="form-control" placeholder="Date of birth">
-                          </div>
-                      </div> -->
-                    </div>  
-                    <button type="submit">Post</button>            
-                </div>          
-        </form>
-    </div>
-    <script>
-        var number = 1;
-        function ShowAndHide(event){
-            if(event.target.checked){
-                $("#add").removeClass("hidden");
-                for(let i=1; i<=number;i++){
-                    $("#row" + i.toString()).removeClass("hidden");
-                }
-            }
-            else{
-                $("#add").addClass("hidden");
-                for(let i=1; i<=number;i++){
-                    $("#row" + i.toString()).addClass("hidden");
-                }
-            }
-        }
-        $(document).ready(function(){
-                $('#add').on('click', function(){
-                    let html = '<div class="row" id="row'+ number.toString() +'">' +
-                        '<div class="form-group col-lg-4">' + 
-                            '<label for="fisrtName">First Name</label>' +
-                            '<input type="text" id="FirstName'+ number.toString() +'" name="first_name[]" class="form-control" placeholder="">' +
-                            '</div>' +
-                            '<div class="form-group col-lg-4">' + 
-                            '<label for="fisrtName">Last Name</label>' +
-                            '<input type="text" id="LastName'+ number.toString() +'" name="last_name[]" class="form-control" placeholder="">' +
-                            '</div>' +
-                            '<div class="form-group col-lg-3">' + 
-                            '<label for="fisrtName">Date of Birth</label>' +
-                            '<input type="date" id="DateOfBirth'+ number.toString() +'" name="date_name[]" class="form-control" placeholder="">' +
-                            '</div>' +
-                            '<button onclick="removeRow('+ number.toString() + ')" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>'
-                            '</div>';
-                    $('#minorsList').append(html)
-                    number++;
-                    console.log(html);
-                });
-            });
-            let removeRow = function(number){
-                $('#row'+number).remove();
-            }
-    </script>
-</body>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="/js/app.js"></script>
+  </body>
 </html>
